@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grocery_app/features/cart/ui/cart.dart';
 import 'package:grocery_app/features/home/bloc/home_bloc_bloc.dart';
+import 'package:grocery_app/features/home/ui/product_tile_widget.dart';
 import 'package:grocery_app/features/wishlist/ui/wishlist.dart';
 
 class Home extends StatefulWidget {
@@ -46,6 +47,7 @@ class _HomeState extends State<Home> {
               body: const Center(child: CircularProgressIndicator()),
             );
           case HomeLoadingSuccessState:
+            final successState = state as HomeLoadingSuccessState;
             return Scaffold(
               appBar: AppBar(
                 title: const Text(
@@ -70,15 +72,20 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              body: const Center(
-                child: Text('Welcome to Grocery App'),
+              body: ListView.builder(
+                itemCount: successState.products.length,
+                itemBuilder: (context, index) {
+                  return ProductTileWidget(
+                    productDataMOdels: successState.products[index],
+                  );
+                },
               ),
             );
 
           case HomeErrorState():
             return Scaffold(body: const Center(child: Text('Error')));
           default:
-          return const SizedBox();
+            return const SizedBox();
         }
       },
     );
