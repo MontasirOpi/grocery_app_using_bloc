@@ -69,7 +69,7 @@ class CartTileWidget extends StatelessWidget {
                       productDataMOdels: productDataMOdels,
                     ));
                     },
-                    icon: const Icon(Icons.add_shopping_cart),
+                    icon: const Icon(Icons.remove_shopping_cart),
                   ),
                   
                 ],

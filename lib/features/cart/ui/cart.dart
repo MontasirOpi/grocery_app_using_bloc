@@ -21,7 +21,8 @@ class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cart')),
+      appBar: AppBar(title: const Text('Cart'),
+      backgroundColor: Colors.teal,),
       body: BlocConsumer<CartBloc, CartState>(
         bloc: cardBloc,
         listener: (context, state) {
