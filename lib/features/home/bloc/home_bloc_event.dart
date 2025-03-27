@@ -5,9 +5,17 @@ sealed class HomeBlocEvent {}
 
 class HomeInitialEvent extends HomeBlocEvent {}
 
-class HomeProductWishListButtonClickEvent extends HomeBlocEvent {}
+class HomeProductWishListButtonClickEvent extends HomeBlocEvent {
+  final ProductDataMOdels clickProduct;
 
-class HomeProductCartButtonClickEvent extends HomeBlocEvent {}
+  HomeProductWishListButtonClickEvent({required this.clickProduct});
+}
+
+class HomeProductCartButtonClickEvent extends HomeBlocEvent {
+  final ProductDataMOdels clickProduct;
+
+  HomeProductCartButtonClickEvent({required this.clickProduct});
+}
 
 class HomeWishlistButtonNavigateEvent extends HomeBlocEvent {}
 
